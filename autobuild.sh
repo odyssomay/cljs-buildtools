@@ -4,11 +4,11 @@ SCRIPT=`readlink -f $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
 if [ "$1" == "" -o "$2" == "" ]; then
-	echo "Usage:"
-	echo "1st argument:         path to clojurescript"
-	echo "2nd argument:         path to file/dir to compile"
-	echo "3rd argument or more: optional, paths to files to watch (not compile)"
-	echo "last argument:        optional, options to be passed to compiler"
+	echo "
+1st argument:         path to clojurescript
+2nd argument:         path to file/dir to compile
+3rd argument or more: optional, paths to files to watch (but not compile)
+last argument:        optional, options to be passed to compiler"
 	exit 1
 fi
 

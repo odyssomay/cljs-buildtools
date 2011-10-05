@@ -3,7 +3,7 @@ A simple, no-fuss, autobuild tool for clojurescript.
 
 ## Installation
 
-Download [`autobuild.sh`](https://github.com/odyssomay/cljs-autobuild/blob/master/autobuild.sh) and [`autobuild.clj`](https://github.com/odyssomay/cljs-autobuild/blob/master/autobuild.clj) to the same directory.
+Download [`autobuild.sh`](https://raw.github.com/odyssomay/cljs-autobuild/master/autobuild.sh) and [`autobuild.clj`](https://raw.github.com/odyssomay/cljs-autobuild/master/autobuild.clj) to the same directory.
 
 ## Usage
 
