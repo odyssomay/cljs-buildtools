@@ -7,7 +7,7 @@ Download [`autobuild.sh`](https://raw.github.com/odyssomay/cljs-autobuild/master
 
 ## Usage
 
-1st argument:         path to clojurescript
+> 1st argument:         path to clojurescript
 2nd argument:         path to file/dir to compile
 3rd argument or more: optional, paths to files to watch (but not compile)
 last argument:        optional, options to be passed to compiler
