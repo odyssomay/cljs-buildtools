@@ -69,9 +69,9 @@ else:
 
 p = subprocess.Popen(jvm_cmd + ["clojure.main", cljs_home + "/bin/cljsc.clj", args.i, args.opts],\
 		stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-p.wait()
 out = p.stdout.read()
 err = p.stderr.read()
+p.wait()
 
 if p.returncode == 0:
 	if args.o:

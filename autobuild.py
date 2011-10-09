@@ -63,9 +63,9 @@ def build(target, options):
 	sys.stdout.flush()
 	p = subprocess.Popen(["./build.py", "-i", target, "-o", args.o, "-cljs-home", cljs_home, "-opts", options], \
 			stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-	p.wait()
 	out = p.stdout.read()
 	err = p.stderr.read()
+	p.wait()
 
 	if p.returncode == 0:
 		print OKGREEN + "success!" + HEADER + " Built " + str(target) + " at",
