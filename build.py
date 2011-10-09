@@ -58,7 +58,7 @@ def init_nailgun():
 	if not re.match(r'.*hello.*', out):
 		subprocess.Popen(["java", "-server", "-cp",
 			classpath + ":" + ng_dir + "nailgun-0.7.1.jar", "com.martiansoftware.nailgun.NGServer"], \
-			stdout=subprocess.PIPE)
+			stdout=subprocess.PIPE).wait()
 
 if not args.no_persistence:
 	jvm_cmd = [ng_dir + "ng"]
