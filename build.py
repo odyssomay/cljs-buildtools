@@ -77,6 +77,7 @@ if p.returncode == 0:
 	if args.o:
 		f = open(args.o, "w")
 		f.write(out)
+		f.close()
 	else:
 		sys.stdout.write(out)
 

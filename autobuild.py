@@ -70,9 +70,6 @@ def build(target, options):
 	if p.returncode == 0:
 		print OKGREEN + "success!" + HEADER + " Built " + str(target) + " at",
 		print datetime.datetime.now().strftime("%H:%M:%S") + ENDC
-		if args.o:
-			f = open(args.o, "w")
-			f.write(out)
 	else:
 		print FAIL + "failed!" + ENDC
 	
