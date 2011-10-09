@@ -10,6 +10,13 @@ For build script use [`build.py`](https://raw.github.com/odyssomay/cljs-buildtoo
 ## Usage
 
 ```
+> ./autobuild.py -h
+usage: autobuild.py [-h] [-o O] [-i I] [-opts OPTS] [-cljs-home HOME]
+                    [-no-persistence]
+
+A script for clojurescript autocompiling
+
+optional arguments:
   -h, --help       show this help message and exit
   -o O             output file
   -i I             input file
