@@ -1,16 +1,20 @@
 
-A simple, no-fuss, autobuild tool for clojurescript.
+A simple autobuild tool paired with a persistent build script for clojurescript.
 
 ## Installation
 
-Download [`autobuild.sh`](https://raw.github.com/odyssomay/cljs-autobuild/master/autobuild.sh) and [`autobuild.clj`](https://raw.github.com/odyssomay/cljs-autobuild/master/autobuild.clj) to the same directory.
+For autobuild only [`autobuild.py`](https://raw.github.com/odyssomay/cljs-buildtools/master/autobuild.py) is needed.
+
+For build script use [`build.py`](https://raw.github.com/odyssomay/cljs-buildtools/master/build.py).
 
 ## Usage
 
-1st argument:         path to clojurescript <br />
-2nd argument:         path to file/dir to compile <br />
-3rd argument or more: optional, paths to files to watch (but not compile) <br />
-last argument:        optional, options to be passed to compiler <br />
+  -h, --help       show this help message and exit
+  -o O             output file
+  -i I             input file
+  -opts OPTS       options sent to the compiler
+  -cljs-home HOME  clojurescript home directory
+  -no-persistence  build without using persistent jvm
 
 ## License (zlib) 
 
