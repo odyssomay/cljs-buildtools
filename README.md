@@ -9,12 +9,14 @@ For build script use [`build.py`](https://raw.github.com/odyssomay/cljs-buildtoo
 
 ## Usage
 
-  -h, --help       show this help message and exit <br/>
-  -o O             output file <br />
-  -i I             input file <br />
-  -opts OPTS       options sent to the compiler <br />
-  -cljs-home HOME  clojurescript home directory <br />
-  -no-persistence  build without using persistent jvm <br />
+```
+  -h, --help       show this help message and exit
+  -o O             output file
+  -i I             input file
+  -opts OPTS       options sent to the compiler
+  -cljs-home HOME  clojurescript home directory
+  -no-persistence  build without using persistent jvm
+```
 
 ## License (zlib) 
 
