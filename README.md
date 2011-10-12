@@ -25,7 +25,7 @@ optional arguments:
   -opts OPTS       options sent to the compiler
   -cljs-home HOME  clojurescript home directory
   -no-persistence  build without using persistent jvm
-  -I I             include path to classpath
+  -cp CP           include path to classpath
 ```
 
 The `-no-persistence` can be used if there is a problem with nailgun.

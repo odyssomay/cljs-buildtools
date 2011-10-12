@@ -26,7 +26,7 @@ parser.add_argument('-i', help="input file")
 parser.add_argument('-opts', help="options sent to the compiler", default="")
 parser.add_argument('-cljs-home', help="clojurescript home directory", dest="home")
 parser.add_argument('-no-persistence', help="build without using persistent jvm", action="store_true", default=False)
-parser.add_argument('-I', help="include path to classpath", default="")
+parser.add_argument('-cp', help="include path to classpath", default="")
 
 args = parser.parse_args()
 
@@ -62,7 +62,10 @@ def get_status_hash(target):
 # ----------------------------------------------------
 # nailgun / java env
 
-classpath = ":".join(map((lambda p: cljs_home + "/" + p),  ["lib/*", "src/clj", "src/cljs"])) + ":" + args.I
+classpath = ":".join(map((lambda p: cljs_home + "/" + p),  ["lib/*", "src/clj", "src/cljs"]))
+
+if args.cp:
+	classpath = classpath + ":" + args.cp
 
 def setup_nailgun():
 	if not os.path.exists(ng_dir + "ng"):
