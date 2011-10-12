@@ -18,7 +18,7 @@ FAIL = '\033[91m'
 ENDC = '\033[0m'
 
 cljs_home = os.getenv('CLOJURESCRIPT_HOME')
-ng_dir = "./nailgun-0.7.1/"
+ng_dir = "./.nailgun/nailgun-0.7.1/"
 
 parser = argparse.ArgumentParser(description='A script for clojurescript autocompiling')
 parser.add_argument('-o', help="output file", default="")
@@ -68,13 +68,16 @@ if args.cp:
 	classpath = classpath + ":" + args.cp
 
 def setup_nailgun():
-	if not os.path.exists(ng_dir + "ng"):
-		print OKBLUE + "Fetching nailgun" + ENDC
-		urllib.urlretrieve("https://github.com/downloads/odyssomay/cljs-buildtools/nailgun-0.7.1.zip", "nailgun.zip")
-		print OKBLUE + "Unpacking nailgun" + ENDC
-		subprocess.call(["unzip", "-o", "-qq", "nailgun.zip"])
-		print OKBLUE + "Building nailgun" + ENDC
-		subprocess.Popen(["make"], cwd=ng_dir, stdout=subprocess.PIPE).wait()
+	if not os.path.exists('.nailgun'):
+		os.makedirs('.nailgun')
+		if not os.path.exists(ng_dir + "ng"):
+			print OKBLUE + "Fetching nailgun" + ENDC
+			urllib.urlretrieve("https://github.com/downloads/odyssomay/cljs-buildtools/nailgun-0.7.1.zip", "nailgun.zip")
+			print OKBLUE + "Unpacking nailgun" + ENDC
+			subprocess.call(["unzip", "-o", "-qq", "-d", ".nailgun", "nailgun.zip"])
+			os.remove('nailgun.zip')
+			print OKBLUE + "Building nailgun" + ENDC
+			subprocess.Popen(["make"], cwd=ng_dir, stdout=subprocess.PIPE).wait()
 
 def nailgun_started():
 	test_p = subprocess.Popen([ng_dir + "ng", "clojure.main", "-e", "'hello" ], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
