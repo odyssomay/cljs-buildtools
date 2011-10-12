@@ -53,8 +53,7 @@ def hash_sum(s):
 
 def get_status(target):
 	p = subprocess.Popen(["ls", "-l", target], stdout=subprocess.PIPE)
-	p.wait()
-	return p.stdout.read()
+	return p.communicate()[0]
 
 def get_status_hash(target):
 	return hash_sum(get_status(target))
@@ -81,9 +80,7 @@ def setup_nailgun():
 
 def nailgun_started():
 	test_p = subprocess.Popen([ng_dir + "ng", "clojure.main", "-e", "'hello" ], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-	out = test_p.stdout.read()
-	err = test_p.stderr.read()
-	test_p.wait()
+	out, err = test_p.communicate()
 	if re.match(r'.*hello.*', out):
 		return True
 	else:
@@ -119,9 +116,7 @@ def build(target, options):
 	sys.stdout.flush()
 	p = subprocess.Popen(jvm_cmd + ["clojure.main", cljs_home + "/bin/cljsc.clj", args.i, args.opts],\
 						 stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-	out = p.stdout.read()
-	err = p.stderr.read()
-	p.wait()
+	out, err = p.communicate()
 
 	if p.returncode == 0:
 		print OKGREEN + "success!" + HEADER + " Built " + str(target) + " at",
