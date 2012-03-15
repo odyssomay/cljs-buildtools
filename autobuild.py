@@ -52,7 +52,7 @@ def hash_sum(s):
 	return hashlib.sha1(s).hexdigest()
 
 def get_status(target):
-	p = subprocess.Popen(["ls", "-l", target], stdout=subprocess.PIPE)
+	p = subprocess.Popen(["ls", "-lR", target], stdout=subprocess.PIPE)
 	return p.communicate()[0]
 
 def get_status_hash(target):
